@@ -15,14 +15,32 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order.init(
     {
-      user_id: DataTypes.STRING,
-      service_id: DataTypes.STRING,
-      product_id: DataTypes.STRING,
+      user_id: {
+        type: DataTypes.STRING,
+        validate: {
+          notNull: { msg: "user_id is require" },
+          notEmpty: { msg: "user_id is require" },
+        },
+      },
+      service_id: {
+        type: DataTypes.STRING,
+        validate: {
+          notNull: { msg: "service_id is require" },
+          notEmpty: { msg: "service_id is require" },
+        },
+      },
+      product_id: {
+        type: DataTypes.STRING,
+        validate: {
+          notNull: { msg: "product_id is require" },
+          notEmpty: { msg: "product_id is require" },
+        },
+      },
     },
     {
       sequelize,
       modelName: "Order",
-    }
+    },
   );
   return Order;
 };
