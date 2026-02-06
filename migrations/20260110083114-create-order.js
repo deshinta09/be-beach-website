@@ -5,29 +5,28 @@ module.exports = {
     await queryInterface.createTable("Orders", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
       },
       user_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
         references: {
-          model: "Users",
+          model: "users",
           key: "id",
         },
         onUpdate: "cascade",
         onDelete: "cascade",
       },
       service_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
         references: {
-          model: "Services",
+          model: "services",
         },
       },
       product_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
         references: {
-          model: "Products",
+          model: "products",
           key: "id",
         },
         onUpdate: "cascade",
